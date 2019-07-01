@@ -25,6 +25,7 @@ function getRandomLetter() {
 }
 
 var compChoice = getRandomLetter();
+console.log(compChoice)
 
 document.onkeyup = function (event) {
 
@@ -34,7 +35,8 @@ document.onkeyup = function (event) {
     if (keyPress == compChoice) {
         ++won;
         compChoice = getRandomLetter();
-        guessed = [];
+        guessed = []; // on win, guesses left displays "undefined" on html
+        guessesLeft = 0;
     } else {
         guessed.push(keyPress);
         var guessesLeft = guessesAllowed - guessed.length;
@@ -44,6 +46,7 @@ document.onkeyup = function (event) {
             compChoice = getRandomLetter();
         }
     }
+
     winText.innerHTML = won;
     loseText.innerHTML = lost;
     guessNum.innerHTML = guessesLeft;
