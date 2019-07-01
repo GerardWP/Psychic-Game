@@ -44,6 +44,10 @@ document.onkeyup = function (event) {
             compChoice = getRandomLetter();
         }
     }
+    winText.innerHTML = won;
+    loseText.innerHTML = lost;
+    guessNum.innerHTML = guessesLeft;
+    myGuesses.innerHTML = guessed;
 
     console.log("-------------------");
     console.log("comp choice: " + compChoice);
