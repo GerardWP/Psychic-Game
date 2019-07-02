@@ -32,37 +32,35 @@ document.onkeyup = function (event) {
     var keyPress = event.key.toLowerCase();
 
 
-    if (keyPress == compChoice) {
-        ++won;
-        compChoice = getRandomLetter();
-        guessed = [];
-        guessesLeft = 0;
-    } else {
-        guessed.push(keyPress);
-        var guessesLeft = guessesAllowed - guessed.length;
-        if (guessesLeft <= 0) {
-            ++lost;
-            guessed = [];
-            compChoice = getRandomLetter();
-        }
-    }
-
     // if (keyPress == compChoice) {
     //     ++won;
     //     compChoice = getRandomLetter();
     //     guessed = [];
     //     guessesLeft = 0;
-    // } else if (guessed.length + 1 >= guessesAllowed) {
-    //     ++lost;
-    //     guessed = [];
-    //     compChoice = getRandomLetter();
-    //     guessesLeft = 0;
     // } else {
     //     guessed.push(keyPress);
     //     var guessesLeft = guessesAllowed - guessed.length;
+    //     if (guessesLeft <= 0) {
+    //         ++lost;
+    //         guessed = [];
+    //         compChoice = getRandomLetter();
+    //     }
     // }
 
-
+    if (keyPress == compChoice) {
+        ++won;
+        compChoice = getRandomLetter();
+        guessed = [];
+        guessesLeft = 0;
+    } else if (guessed.length + 1 >= guessesAllowed) {
+        ++lost;
+        guessed = [];
+        compChoice = getRandomLetter();
+        guessesLeft = 0;
+    } else {
+        guessed.push(keyPress);
+        var guessesLeft = guessesAllowed - guessed.length;
+    }
 
     winText.innerHTML = won;
     loseText.innerHTML = lost;

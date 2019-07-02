@@ -2,10 +2,15 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     height: 100vh;
-    background: #2d1a3f;
+    background: #20122e;
     color: #fff;
 }
 
+h1 {
+    font-family: 'Bahianita', cursive;
+    font-size: 4em;
+    margin: 15px 0px;
+}
 
 p {
     color: #d2d2d2;
