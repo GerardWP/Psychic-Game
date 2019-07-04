@@ -50,5 +50,5 @@ document.onkeyup = function (event) {
     winText.innerHTML = won;
     loseText.innerHTML = lost;
     guessNum.innerHTML = guessesLeft;
-    myGuesses.innerHTML = guessed;
+    myGuesses.innerHTML = guessed.join("");
 }
