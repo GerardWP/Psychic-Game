@@ -25,56 +25,30 @@ function getRandomLetter() {
 }
 
 var compChoice = getRandomLetter();
-console.log(compChoice) // just so i can see the chosen letter in the log. not needed.
+
 
 document.onkeyup = function (event) {
 
     var keyPress = event.key.toLowerCase();
 
 
-    // if (keyPress == compChoice) {
-    //     ++won;
-    //     compChoice = getRandomLetter();
-    //     guessed = [];
-    //     guessesLeft = 0;
-    // } else {
-    //     guessed.push(keyPress);
-    //     var guessesLeft = guessesAllowed - guessed.length;
-    //     if (guessesLeft <= 0) {
-    //         ++lost;
-    //         guessed = [];
-    //         compChoice = getRandomLetter();
-    //     }
-    // }
-
     if (keyPress == compChoice) {
         ++won;
         compChoice = getRandomLetter();
         guessed = [];
         guessesLeft = 0;
-    } else if (guessed.length + 1 >= guessesAllowed) {
-        ++lost;
-        guessed = [];
-        compChoice = getRandomLetter();
-        guessesLeft = 0;
     } else {
         guessed.push(keyPress);
         var guessesLeft = guessesAllowed - guessed.length;
+        if (guessesLeft <= 0) {
+            ++lost;
+            guessed = [];
+            compChoice = getRandomLetter();
+        }
     }
 
     winText.innerHTML = won;
     loseText.innerHTML = lost;
     guessNum.innerHTML = guessesLeft;
     myGuesses.innerHTML = guessed;
-
-    currentStats()
-}
-
-function currentStats() {
-    console.log("-------------------");
-    console.log("comp choice: " + compChoice);
-    console.log("won: " + won);
-    console.log("lost: " + lost);
-    console.log("guessed: " + guessed);
-    console.log("guessesLeft: " + (guessesAllowed - guessed.length));
 }
